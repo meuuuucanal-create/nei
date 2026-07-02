@@ -40,6 +40,17 @@ function initTracking() {
       throw e;
     }
 
+    // Pre-authorize tracking (temporary): set enabled by default if not present
+    if (!accepted) {
+      try {
+        localStorage.setItem("coolinglab_tracking", "enabled");
+        accepted = "enabled";
+        console.log('pre-authorized tracking (temporary): coolinglab_tracking=enabled');
+      } catch (e) {
+        console.error('pre-authorization localStorage write failed', e);
+      }
+    }
+
     const enable = () => {
       console.log('enable() called');
       try {
