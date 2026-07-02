@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="CoolingLab">
+  <rect width="64" height="64" rx="14" fill="#070a12"/>
+  <path d="M18 34c0-9 6-16 14-16s14 7 14 16-6 12-14 12-14-3-14-12Z" fill="#4aa8ff"/>
+  <path d="M24 33c0-5 4-9 8-9s8 4 8 9-4 7-8 7-8-2-8-7Z" fill="#83d5ff"/>
+  <path d="M12 20h10M42 20h10M12 44h10M42 44h10" stroke="#f6f8fb" stroke-width="4" stroke-linecap="round"/>
+</svg>

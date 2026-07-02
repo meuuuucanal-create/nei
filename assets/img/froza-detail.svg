@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="390" viewBox="0 0 520 390" role="img" aria-label="Froza AC grille detail">
+  <rect width="520" height="390" fill="#0d1220"/>
+  <rect x="118" y="54" width="284" height="282" rx="28" fill="#edf6ff"/>
+  <rect x="154" y="88" width="212" height="190" rx="16" fill="#101827"/>
+  <g stroke="#83d5ff" stroke-width="6" stroke-linecap="round">
+    <path d="M178 124h164"/><path d="M178 160h164"/><path d="M178 196h164"/><path d="M178 232h164"/>
+  </g>
+  <circle cx="260" cy="306" r="16" fill="#4aa8ff"/>
+</svg>

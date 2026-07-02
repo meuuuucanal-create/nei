@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="640" viewBox="0 0 760 640" role="img" aria-label="Froza AC portable air cooler on a clean desk">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1"><stop stop-color="#0f172a"/><stop offset="1" stop-color="#17223a"/></linearGradient>
+    <linearGradient id="unit" x1="0" x2="1"><stop stop-color="#f7fbff"/><stop offset="1" stop-color="#dce9f7"/></linearGradient>
+  </defs>
+  <rect width="760" height="640" fill="url(#bg)"/>
+  <rect x="72" y="500" width="616" height="22" rx="11" fill="#26354f"/>
+  <rect x="250" y="116" width="260" height="390" rx="34" fill="url(#unit)"/>
+  <rect x="278" y="154" width="204" height="212" rx="18" fill="#0e1829"/>
+  <g stroke="#83d5ff" stroke-width="5" opacity=".9">
+    <path d="M300 190h160"/><path d="M300 226h160"/><path d="M300 262h160"/><path d="M300 298h160"/><path d="M300 334h160"/>
+  </g>
+  <circle cx="380" cy="430" r="34" fill="#4aa8ff"/>
+  <circle cx="380" cy="430" r="14" fill="#07111f"/>
+  <path d="M204 226c-58 14-88 48-90 102 44-42 94-52 150-28" fill="none" stroke="#4aa8ff" stroke-width="8" stroke-linecap="round" opacity=".55"/>
+  <path d="M556 250c52 15 80 48 82 96-40-34-84-42-132-20" fill="none" stroke="#83d5ff" stroke-width="8" stroke-linecap="round" opacity=".45"/>
+  <text x="380" y="572" fill="#f6f8fb" font-family="Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle">Froza AC</text>
+</svg>
