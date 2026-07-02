@@ -1,5 +1,7 @@
 "use strict";
 
+console.log('tracking.js loaded');
+
 const trackingConfig = {
   ga4Id: "",
   gtmId: "",
@@ -20,11 +22,37 @@ function loadScript(src, attrs = {}) {
 }
 
 function initTracking() {
-  const cookieBar = document.querySelector(".cookie-bar");
-  const accepted = localStorage.getItem("coolinglab_tracking");
-  const enable = () => {
-    localStorage.setItem("coolinglab_tracking", "enabled");
-    if (cookieBar) cookieBar.hidden = true;
+  console.log('initTracking() called');
+  try {
+    const cookieBar = document.querySelector(".cookie-bar");
+    if (cookieBar) {
+      console.log('cookie bar found', cookieBar);
+    } else {
+      console.error('cookie bar not found');
+    }
+
+    let accepted;
+    try {
+      accepted = localStorage.getItem("coolinglab_tracking");
+      console.log('read localStorage coolinglab_tracking:', accepted);
+    } catch (e) {
+      console.error('localStorage read failed', e);
+      throw e;
+    }
+
+    const enable = () => {
+      console.log('enable() called');
+      try {
+        localStorage.setItem("coolinglab_tracking", "enabled");
+        console.log('localStorage written: coolinglab_tracking=enabled');
+      } catch (e) {
+        console.error('localStorage write failed', e);
+        throw e;
+      }
+      if (cookieBar) {
+        cookieBar.hidden = true;
+        console.log('banner hidden');
+      }
 
     // GA4 & Google Ads Global Tag initialization
     const needsGtag = trackingConfig.ga4Id || trackingConfig.googleAdsId;
@@ -93,15 +121,61 @@ function initTracking() {
   if (!accepted && cookieBar) cookieBar.hidden = false;
   if (accepted === "enabled") enable();
 
-  document.querySelector("[data-cookie-accept]")?.addEventListener("click", enable);
-  document.querySelector("[data-cookie-decline]")?.addEventListener("click", () => {
-    localStorage.setItem("coolinglab_tracking", "disabled");
-    if (cookieBar) cookieBar.hidden = true;
-  });
-  document.querySelector("[data-cookie-reset]")?.addEventListener("click", () => {
-    localStorage.removeItem("coolinglab_tracking");
-    if (cookieBar) cookieBar.hidden = false;
-  });
+  const acceptBtn = document.querySelector("[data-cookie-accept]");
+  if (acceptBtn) {
+    console.log('accept button found', acceptBtn);
+    acceptBtn.addEventListener("click", (e) => {
+      console.log('accept click detected');
+      try {
+        enable();
+      } catch (err) {
+        console.error('exception during enable', err);
+        throw err;
+      }
+    });
+  } else {
+    console.error('accept button not found');
+  }
+
+  const declineBtn = document.querySelector("[data-cookie-decline]");
+  if (declineBtn) {
+    console.log('decline button found', declineBtn);
+    declineBtn.addEventListener("click", () => {
+      try {
+        localStorage.setItem("coolinglab_tracking", "disabled");
+        console.log('localStorage written: coolinglab_tracking=disabled');
+      } catch (e) {
+        console.error('localStorage write failed (decline)', e);
+        throw e;
+      }
+      if (cookieBar) {
+        cookieBar.hidden = true;
+        console.log('banner hidden (decline)');
+      }
+    });
+  } else {
+    console.error('decline button not found');
+  }
+
+  const resetBtn = document.querySelector("[data-cookie-reset]");
+  if (resetBtn) {
+    console.log('reset button found', resetBtn);
+    resetBtn.addEventListener("click", () => {
+      try {
+        localStorage.removeItem("coolinglab_tracking");
+        console.log('localStorage removed: coolinglab_tracking');
+      } catch (e) {
+        console.error('localStorage remove failed (reset)', e);
+        throw e;
+      }
+      if (cookieBar) {
+        cookieBar.hidden = false;
+        console.log('banner shown (reset)');
+      }
+    });
+  } else {
+    console.error('reset button not found');
+  }
 
   document.querySelectorAll("[data-affiliate-link]").forEach((link) => {
     link.addEventListener("click", () => {
@@ -131,4 +205,8 @@ function initTracking() {
       }
     });
   });
+  } catch (e) {
+    console.error('initTracking exception', e);
+    throw e;
+  }
 }

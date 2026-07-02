@@ -131,6 +131,7 @@ tbody tr:last-child td { border-bottom: 0; }
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px;
   display: flex; align-items: center; gap: 12px; box-shadow: var(--shadow);
 }
+.cookie-bar[hidden] { display: none !important; }
 .cookie-bar p { margin: 0; color: var(--muted); flex: 1; }
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity 520ms ease, transform 520ms ease; }
 .reveal.is-visible { opacity: 1; transform: none; }
