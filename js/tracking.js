@@ -2,6 +2,24 @@
 
 console.log('tracking.js loaded');
 
+// User requested: pre-authorize tracking and remove existing cookie banner
+try {
+  if (!localStorage.getItem("coolinglab_tracking")) {
+    localStorage.setItem("coolinglab_tracking", "enabled");
+    console.log('pre-authorized tracking (user request)');
+  }
+} catch (e) {
+  console.error('pre-authorization localStorage failed (user request)', e);
+}
+
+const _cb = document.querySelector('.cookie-bar');
+if (_cb) {
+  _cb.remove();
+  console.log('cookie bar removed (user request)');
+} else {
+  console.log('cookie bar not present to remove (user request)');
+}
+
 const trackingConfig = {
   ga4Id: "",
   gtmId: "",
