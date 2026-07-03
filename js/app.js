@@ -4,7 +4,7 @@ const offer = {
   siteName: "CoolingLab",
   productName: "Froza AC",
   category: "Refroidisseur d'air portable",
-  affiliateUrl: "https://example.com/froza-ac",
+  affiliateUrl: "https://get-froza.com/v8/checkout?b=823&ln=fr&region=fr&_ef_transaction_id=&uid=8254&oid=751&affid=758&source_id={affiliate_id}&sub1={affiliate_id}&sub2={sub1}&sub3={transaction_id}",
   reviewScore: 4.6,
   priceCurrency: "USD",
   hero: {
